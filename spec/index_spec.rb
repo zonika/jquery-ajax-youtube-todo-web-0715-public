@@ -17,7 +17,7 @@ describe "Index" do
   it "can search for a second video after loading the first using click" do
     fill_in('text-field', with: 'adorn')
     find("#user-submit").click
-    first_iframe = page.find("iframe")
+    first_iframe = page.find("#ytplayer")
     fill_in('text-field', with: 'jason derulo')
     find("#user-submit").click
     expect(page).to_not eq(first_iframe)
