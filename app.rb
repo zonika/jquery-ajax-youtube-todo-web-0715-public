@@ -6,7 +6,7 @@ class App < Sinatra::Base
     erb :"index"
   end
 
-  get "/:search_keyword" do
-    @video = Youtube.run(search_keyword)
+  get "/results" do
+    @video = YouTube.new(params[:search_keyword]).get_vid
   end
 end

@@ -6,14 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AJAX with Youtube</title>
+
+    <!-- bootstrap and jquery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
-    <link href="jumbotron-narrow.css" rel="stylesheet">
-    <script src="/fetch_video.js"></script>
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <!-- custom style and scripts -->
+    <link href="stylesheets/custom.css" rel="stylesheet">
+    <script src="javascripts/fetch_video.js"></script>
   </head>
 
   <body>
 
     <div class="container">
+
+      <div class="jumbotron">
+        <h1>AJAX with YouTube</h1>
+        <p class="lead">Enter a search term for YouTube: </p>
+        <p class="lead">
+          <form class="center-this">
+            <div><input type="text" id="text-field" placeholder="baby minion"></div>
+            <div type="submit" class="btn btn-success" id="user-submit">Search</div>
+          </form>
+        </p>
+      </div>
 
       <div class="center-container">
         <div id="search-results">
