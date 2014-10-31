@@ -21,12 +21,15 @@ $(document).ready(function() {
 
     $.ajax({
       type: "GET",
-      url: "/results",
+      url: "/widget",
       data: { search_keyword: input }
     })
-      .done(function( youtubeWidget ) {
+      .done(function( youTubeWidget ) {
+        // remove any videos that might already be there
         $("#search-results").html("");
-        $("#search-results").html(youtubeWidget);
+
+        // add the new video
+        $("#search-results").html(youTubeWidget);
       });
 
   }
