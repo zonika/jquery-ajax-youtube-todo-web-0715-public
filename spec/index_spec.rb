@@ -9,31 +9,25 @@ describe "Index" do
   end
 
   it "adds video to 'search-results' div on click" do
-    fill_in('#text-field', with: 'adorn')
-    click_on "Search"
+    fill_in('text-field', with: 'adorn')
+    find("#user-submit").click
     expect(page).to have_content(iframe)
   end
 
-  it "adds video to 'search-results' div on enter" do
-    fill_in('#text-field', with: 'adorn')
-    find('#text-field').native.send_keys(:return)
-    expect(page).to have_content(iframe)
+  it "can search for a second video after loading the first using click" do
+    fill_in('text-field', with: 'adorn')
+    find("#user-submit").click
+    first_iframe = page.find("iframe")
+    fill_in('text-field', with: 'jason derulo')
+    find("#user-submit").click
+    expect(page).to_not eq(first_iframe)
   end
 
-  it "can search for a second video after loading the first" do
-    fill_in('#text-field', with: 'adorn')
-    click_on "Search"
-    first_search = page
-    fill_in('#text-field', with: 'jason derulo')
-    click_on "Search"
-    expect(page).to_not eq(first_search)
-  end
-
-  it "deletes the first video before replacing it with a second" do
-    fill_in('#text-field', with: 'adorn')
-    click_on "Search"
-    fill_in('#text-field', with: 'jason derulo')
-    click_on "Search"
+  it "deletes the first video before replacing it with a second when using click" do
+    fill_in('text-field', with: 'adorn')
+    find("#user-submit").click
+    fill_in('text-field', with: 'jason derulo')
+    find("#user-submit").click
     expect(page).to match_exactly(1, "iframe")
   end
 
