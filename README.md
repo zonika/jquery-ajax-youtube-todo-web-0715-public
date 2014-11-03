@@ -39,20 +39,22 @@ alt="true facts about marsupials" width="240" height="180" border="10" /></a>
 
 Your task is in five parts:
 
-1. Run `bundle install`.
-2. Sign up for a YouTube developer key so that the YouTube class in the `lib/` folder can query the YouTube API with it.
+* Run `bundle install`.
+* Sign up for a YouTube developer key so that the YouTube class in the `lib/` folder can query the YouTube API with it.
 
 In `fetch_video.js`:
 
-3. add code to the `ajaxCall` function to save the words that get typed into the text box as a variable called `input`.
-4. Make an AJAX call to `/widget` and pass it the params `:search_keyword => input`.
-5. Append the YouTube widget that the AJAX call returns to the div with an ID of `search-results`.
+* Retrieve the words that were typed into the text box.
+* Make an AJAX call to `/widget` and pass it the typed query.
+* Insert the HTML that the AJAX call returns into the page.
+
+Read on for more details!
 
 ### Testing Suite
 
 This lab uses [Capybara](https://github.com/jnicklas/capybara) with [Selenium webdriver](http://selenium.googlecode.com/svn/trunk/docs/api/rb/index.html). When you run `rspec`, a browser should pop up and you'll be able to watch the test interact with your app. You'll see it type text into the text box, click buttons, etc.
 
-### Generate a Key
+### Generating a Key
 
 * Before getting started, figure out your public IP address. It's as simple a Googling ["what is my ip address"](https://www.google.com/search?q=what%20is%20my%20ip%20address).
 * Make sure you're logged into your Google account, visit [https://console.developers.google.com/project](https://console.developers.google.com/project), and click on "Create Project".
@@ -67,17 +69,16 @@ This lab uses [Capybara](https://github.com/jnicklas/capybara) with [Selenium we
 * Enter your IP address that you found in the first step then click "Create". This will take you to a credential show page.
 * Copy the long string of letters that appear to the right of "API KEY".
 
-### Environmental Variable Time
+### Setting Up Your Environmental Variables
 
-* Because keys should be protected (not uploaded to GitHub), you're going to place your key into a file for environmental variables. We'll call it `.env`. You may notice that it's already been added to your `.gitignore` file so that when you add files, it won't get included.
-* From the root of this repo you cloned, make a new file called `.env`. In this file, you'll set the variable DEVELOPER_KEY equal to your copied API key. The file should look something like this:
+* Because keys should be protected (not uploaded to GitHub), you're going to place your key into a file for environmental variables. We'll call it `.env`. You may notice that it's already been added to your `.gitignore` file so that when you add files, it won't get (or should I say git!?!?) included.
+* From the root of your cloned repo, make a new file called `.env`. In this file, you'll set the variable DEVELOPER_KEY equal to your copied API key. The file should look something like this:
 
-`.env`
 ```
 DEVELOPER_KEY=eXamPleAPiKeyStRiNG
 ```
 
-* The variable must be called DEVELOPER_KEY because it is called on on line 6 of `lib/youtube.rb` where `ENV['DEVELOPER_KEY']` appears.
+* The variable must be called DEVELOPER_KEY because it is used on line 6 of `lib/youtube.rb` where `ENV['DEVELOPER_KEY']` appears.
 * Environmental variables can be accessed by calling ENV['NAME_OF_VARIABLE']. This functionality has been built out for you by the [dotenv gem](https://github.com/bkeepers/dotenv).
 
 ### Get User Input
@@ -93,10 +94,10 @@ var nameOfUser = $(".user-name").val();
 
 ### Make an AJAX Call
 
-* Make an an AJAX GET call to the route "/widget" to retrieve a YouTube widget based on the user's input. Remember, if the user types "giraffes", the params you pass it should look like this:
+* Make an an AJAX GET call to the route `/widget` to retrieve a YouTube widget based on the user's input. Remember, if the user types "giraffes", the params you pass it should look like this:
 
 ```ruby
-{ :search_keyword => "giraffes" }
+{search_keyword: "giraffes"}
 ```
 
 ### Example AJAX Call
@@ -111,10 +112,10 @@ var userType = "admin";
 $.ajax({
   type: "POST",
   url: "/users",
-  data: { user_name: nameOfUser, user_type: userType }
+  data: {user_name: nameOfUser, user_type: userType}
 })
-  .done(function( messageFromController ) {
-    console.log("messageFromController");
+  .done(function(messageFromController) {
+    console.log(messageFromController);
   });
 ```
 
@@ -126,13 +127,11 @@ $.ajax({
 
 ### Adding the YouTube Widget to the Page
 
-* Add widget that was returned from the controller to the div with the id of `search-results`. Here's an example of JavaScript that would add a paragraph with the words "hello world" to a div with the class "super-classy":
+* Add widget that was returned from the controller to the div with the id of `search-results`. Here's an example of JavaScript that would replace the contents of anything with the class `super-classy` with the paragraph "hello world":
 
 ```javascript
-$(".super-classy").html(<p>hello world</p>);
+$(".super-classy").html("<p>hello world</p>");
 ```
-
-* Be sure that if someone searches for "giraffes", then for "stapler", they only see one video at the end, of the video that was a hit for staplers. In other words, make sure you're clearing the `#search-results` before you add a video.
 
 ## Resources
 

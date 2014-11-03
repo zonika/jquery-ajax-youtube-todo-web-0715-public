@@ -24,11 +24,7 @@ $(document).ready(function() {
       data: { search_keyword: input },
     })
       .done(function( youTubeWidget ) {
-        // remove any videos that might already be there
-        $("#search-results").html("");
-
-
-        // add the new video
+        // replace with the new video
         $("#search-results").html(youTubeWidget);
       });
 
