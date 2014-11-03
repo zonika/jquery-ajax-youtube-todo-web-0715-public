@@ -20,11 +20,17 @@ For instance, when the params look like this:
 {:search_keyword => "true facts about marsupials"}
 ```
 
-The "/widget" action will return this:
+The `"/widget"` action will return this:
 
 ```html
 <iframe class="" id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/gNqQL-1gZF8" frameborder="0"></iframe>
 ```
+
+The above string, when rendered as HTML, would look something like this:
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=gNqQL-1gZF8
+" target="_blank"><img src="http://img.youtube.com/vi/gNqQL-1gZF8/0.jpg" 
+alt="true facts about marsupials" width="240" height="180" border="10" /></a>
 
 ## Instructions
 
