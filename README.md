@@ -38,6 +38,7 @@ alt="true facts about marsupials" width="240" height="180" border="10" /></a>
 ### Overview
 
 Your task is in five parts:
+
 1. Run `bundle install`.
 2. Sign up for a YouTube developer key so that the YouTube class in the `lib/` folder can query the YouTube API with it.
 3. Save the words that get typed into the text box as a variable called `input`.
