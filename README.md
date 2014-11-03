@@ -10,23 +10,24 @@ resources: 7
 
 Visit [this link](https://s3-us-west-2.amazonaws.com/readme-photos/ajax-youtube-example.mov) to watch a video of the functionality we're going for with this todo.
 
-The Ruby app has been built out for you, all you'll need to do is add code to the `ajaxCall` function in `public/fetch_video.js`. 
+The Ruby app has been built out for you, all you'll need to do is add JavaScript to the `ajaxCall` function in `public/fetch_video.js`. 
 
-There are two routes for you to use, `"/"`, which renders `views/index.erb`, and `"/widget"`. The `"widget"` action expects params with a key of `search_keyword` and a value of a string, for instance "sad cat diary", "baby sloth", or "one direction", not that I would search for any of those things...It then returns a YouTube widget of the first hit for that search in a string.
+There are two routes for you to use, `"/"`, which renders `views/index.erb`, and `"/widget"`:
 
-For instance, when the params look like this:
+* The `"widget"` action expects params with a key of `search_keyword` and a value of a string, for instance "sad cat diary", "baby sloth", or "one direction", not that I would search for any of those things...It then returns a YouTube widget of the first hit for that search in a string.
+  * For instance, when the params look like this:
 
 ```ruby
 {:search_keyword => "true facts about marsupials"}
 ```
 
-The `"/widget"` action will return this:
+  * The `"/widget"` action will return this:
 
 ```html
 <iframe class="" id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/gNqQL-1gZF8" frameborder="0"></iframe>
 ```
 
-The above string, when rendered as HTML, would look something like this:
+  * The above string, when rendered as HTML, would look something like this:
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=gNqQL-1gZF8
 " target="_blank"><img src="http://img.youtube.com/vi/gNqQL-1gZF8/0.jpg" 
@@ -37,15 +38,15 @@ alt="true facts about marsupials" width="240" height="180" border="10" /></a>
 ### Overview
 
 Your task is in five parts:
-1. Run `bundle install`
-2. Sign up for a YouTube developer key so that the YouTube class in the `lib/` folder can query the YouTube API with it
-3. Save the words that get typed into the text box as a variable called `input`
-4. Make an AJAX call to "/widget" and pass it the params `:search_keyword => input`
-5. Append the YouTube widget that the AJAX call returns to the div with an ID of `search-results`
+1. Run `bundle install`.
+2. Sign up for a YouTube developer key so that the YouTube class in the `lib/` folder can query the YouTube API with it.
+3. Save the words that get typed into the text box as a variable called `input`.
+4. Make an AJAX call to "/widget" and pass it the params `:search_keyword => input`.
+5. Append the YouTube widget that the AJAX call returns to the div with an ID of `search-results`.
 
 ### Testing Suite
 
-This lab uses [Capybara](https://github.com/jnicklas/capybara) with [Selenium webdriver](http://selenium.googlecode.com/svn/trunk/docs/api/rb/index.html). When you run `rspec`, a browser should pop up and you should be able to watch the test interact with your app as though it is a human. For instance, you'll see it type text into the text box, click buttons, etc.
+This lab uses [Capybara](https://github.com/jnicklas/capybara) with [Selenium webdriver](http://selenium.googlecode.com/svn/trunk/docs/api/rb/index.html). When you run `rspec`, a browser should pop up and you'll be able to watch the test interact with your app. You'll see it type text into the text box, click buttons, etc.
 
 ### Generate a Key
 
