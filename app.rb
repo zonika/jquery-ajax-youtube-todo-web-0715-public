@@ -7,6 +7,6 @@ class App < Sinatra::Base
   end
 
   get "/widget" do
-    @video = YouTube.run(params[:search_keyword])
+    YouTube.run(params[:search_keyword])
   end
 end

@@ -20,13 +20,13 @@ $(document).ready(function() {
     var input = $("#text-field").val();
 
     $.ajax({
-      type: "GET",
       url: "/widget",
-      data: { search_keyword: input }
+      data: { search_keyword: input },
     })
       .done(function( youTubeWidget ) {
         // remove any videos that might already be there
         $("#search-results").html("");
+
 
         // add the new video
         $("#search-results").html(youTubeWidget);

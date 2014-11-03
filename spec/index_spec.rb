@@ -11,23 +11,25 @@ describe "Index" do
   it "adds video to 'search-results' div on click" do
     fill_in('text-field', with: 'adorn')
     find("#user-submit").click
-    expect(page).to have_content(iframe)
+    expect(page).to have_selector('iframe')
   end
 
-  it "can search for a second video after loading the first using click" do
-    fill_in('text-field', with: 'adorn')
+  it "can search for a second video after loading the first" do
+    fill_in('text-field', with: 'drunk in love')
     find("#user-submit").click
-    first_iframe = page.find("#ytplayer")
+    adorn_src = page.find("#ytplayer")['src']
     fill_in('text-field', with: 'jason derulo')
     find("#user-submit").click
-    expect(page).to_not eq(first_iframe)
+    sleep(2)
+    expect(page.find("#ytplayer")['src']).to_not eq(adorn_src)
   end
 
   it "deletes the first video before replacing it with a second when using click" do
-    fill_in('text-field', with: 'adorn')
+    fill_in('text-field', with: 'kelly clarkson')
     find("#user-submit").click
-    fill_in('text-field', with: 'jason derulo')
+    fill_in('text-field', with: 'beyonce')
     find("#user-submit").click
+    sleep(2)
     expect(page).to match_exactly(1, "iframe")
   end
 

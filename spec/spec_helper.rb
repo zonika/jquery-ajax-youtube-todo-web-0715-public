@@ -6,6 +6,7 @@ require 'rack/test'
 require 'capybara/rspec'
 require 'capybara/dsl'
 require 'capybara-webkit'
+require 'selenium-webdriver'
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
@@ -30,5 +31,6 @@ def app
   Rack::Builder.parse_file('config.ru').first
 end
 
-Capybara.javascript_driver = :webkit
+Capybara.default_driver = :selenium
+# Capybara.javascript_driver = :webkit
 Capybara.app = app

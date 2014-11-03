@@ -15,4 +15,5 @@ group :test do
   gem 'rack-test'
   gem 'launchy'
   gem 'capybara-webkit'
+  gem 'selenium-webdriver'
 end

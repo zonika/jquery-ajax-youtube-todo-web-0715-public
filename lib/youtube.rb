@@ -13,16 +13,7 @@ class YouTube
 
   def get_vid
     videos = self.client.videos_by(:query => [self.search_term]).videos
-    url = videos.first.media_content[0].url
-    get_widget.insert(1, url).join
+    videos.first.embed_html5(:id => "ytplayer", :width => 640, :height => 390)
   end
-
-  private 
-    def get_widget
-      [
-        '<iframe id="ytplayer" type="text/html" width="640" height="390" src=',
-        ' frameborder="0"/>'
-      ]
-    end
 
 end
