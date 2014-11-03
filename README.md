@@ -29,9 +29,7 @@ There are two routes for you to use, `/`, which renders `views/index.erb`, and `
 
   * The above string, when rendered as HTML, would look something like this:
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=gNqQL-1gZF8
-" target="_blank"><img src="http://img.youtube.com/vi/gNqQL-1gZF8/0.jpg" 
-alt="true facts about marsupials" width="240" height="180" border="10" /></a>
+![true facts about marsupials](https://s3-us-west-2.amazonaws.com/readme-photos/js-ajax-youtube-todo)
 
 ## Instructions
 
