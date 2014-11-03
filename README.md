@@ -42,7 +42,8 @@ Your task is in five parts:
 1. Run `bundle install`.
 2. Sign up for a YouTube developer key so that the YouTube class in the `lib/` folder can query the YouTube API with it.
 
-In `fetch_video.js`
+In `fetch_video.js`:
+
 3. add code to the `ajaxCall` function to save the words that get typed into the text box as a variable called `input`.
 4. Make an AJAX call to `/widget` and pass it the params `:search_keyword => input`.
 5. Append the YouTube widget that the AJAX call returns to the div with an ID of `search-results`.
