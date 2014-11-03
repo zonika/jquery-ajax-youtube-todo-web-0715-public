@@ -12,16 +12,16 @@ Visit [this link](https://s3-us-west-2.amazonaws.com/readme-photos/ajax-youtube-
 
 The Ruby app has been built out for you, all you'll need to do is add JavaScript to the `ajaxCall` function in `public/fetch_video.js`. 
 
-There are two routes for you to use, `"/"`, which renders `views/index.erb`, and `"/widget"`:
+There are two routes for you to use, `/`, which renders `views/index.erb`, and `/widget`, which behaves as follows:
 
-* The `"widget"` action expects params with a key of `search_keyword` and a value of a string, for instance "sad cat diary", "baby sloth", or "one direction", not that I would search for any of those things...It then returns a YouTube widget of the first hit for that search in a string.
+* The `/widget` route expects params with a key of `search_keyword` and a value of a string, for instance "sad cat diary", "baby sloth", or "one direction", not that I would search for any of those things...It then returns the HTML to render the first YouTube video for that search.
   * For instance, when the params look like this:
 
 ```ruby
 {:search_keyword => "true facts about marsupials"}
 ```
 
-  * The `"/widget"` action will return this:
+  * The `/widget` route will return this:
 
 ```html
 <iframe class="" id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/gNqQL-1gZF8" frameborder="0"></iframe>
@@ -41,8 +41,10 @@ Your task is in five parts:
 
 1. Run `bundle install`.
 2. Sign up for a YouTube developer key so that the YouTube class in the `lib/` folder can query the YouTube API with it.
-3. Save the words that get typed into the text box as a variable called `input`.
-4. Make an AJAX call to "/widget" and pass it the params `:search_keyword => input`.
+
+In `fetch_video.js`
+3. add code to the `ajaxCall` function to save the words that get typed into the text box as a variable called `input`.
+4. Make an AJAX call to `/widget` and pass it the params `:search_keyword => input`.
 5. Append the YouTube widget that the AJAX call returns to the div with an ID of `search-results`.
 
 ### Testing Suite
