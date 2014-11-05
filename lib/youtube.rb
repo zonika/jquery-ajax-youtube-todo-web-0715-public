@@ -1,5 +1,7 @@
 class YouTube
 
+  RETURN_TO_SENDER = '<iframe width="640" height="390" src="//www.youtube.com/embed/PU5xxh5UX4U" frameborder="0" allowfullscreen></iframe>'
+  
   attr_reader :client, :search_term
 
   def initialize(search_term)
@@ -13,6 +15,10 @@ class YouTube
 
   def get_vid
     videos = self.client.videos_by(:query => [self.search_term]).videos
+    videos.empty? ? RETURN_TO_SENDER : get_embedded_vid(videos)
+  end
+
+  def get_embedded_vid(videos)
     videos.first.embed_html5(:id => "ytplayer", :width => 640, :height => 390)
   end
 
