@@ -5,7 +5,7 @@ class YouTube
   attr_reader :client, :search_term
 
   def initialize(search_term)
-    @client = client = YouTubeIt::Client.new(:dev_key => ENV['DEVELOPER_KEY'])
+    @client = YouTubeIt::Client.new(:dev_key => ENV['DEVELOPER_KEY'])
     @search_term = search_term
   end
 
