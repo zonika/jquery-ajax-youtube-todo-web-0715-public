@@ -76,7 +76,7 @@ This lab uses [Capybara](https://github.com/jnicklas/capybara) with [Selenium we
 DEVELOPER_KEY=eXamPleAPiKeyStRiNG
 ```
 
-* The variable must be called DEVELOPER_KEY because it is used on line 6 of `lib/youtube.rb` where `ENV['DEVELOPER_KEY']` appears.
+* The variable must be called DEVELOPER_KEY because it is used on line 8 of `lib/youtube.rb` where `ENV['DEVELOPER_KEY']` appears.
 * Environmental variables can be accessed by calling ENV['NAME_OF_VARIABLE']. This functionality has been built out for you by the [dotenv gem](https://github.com/bkeepers/dotenv).
 
 ### Get User Input
