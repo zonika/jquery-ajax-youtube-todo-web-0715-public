@@ -4,7 +4,7 @@ languages: javascript
 resources: 7  
 ---
 
-# AJAX with YouTube 
+# AJAX with YouTube & jQuery
 
 ## Introduction
 
