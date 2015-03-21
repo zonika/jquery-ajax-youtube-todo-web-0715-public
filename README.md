@@ -8,8 +8,6 @@ resources: 7
 
 ## Introduction
 
-testing...
-
 Visit [this link](https://s3-us-west-2.amazonaws.com/readme-photos/ajax-youtube-example.mov) to watch a video of the functionality we're going for with this todo.
 
 The Ruby app has been built out for you, all you'll need to do is add JavaScript to the `ajaxCall` function in `public/fetch_video.js`. 
