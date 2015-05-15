@@ -6,7 +6,7 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem 'require_all'
-gem 'youtube_it'
+gem 'yt'
 gem 'dotenv'
 
 group :test do
