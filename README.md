@@ -1,9 +1,3 @@
----
-tags: ajax, api, todo
-languages: javascript 
-resources: 7  
----
-
 # AJAX with YouTube & jQuery
 
 ## Introduction
