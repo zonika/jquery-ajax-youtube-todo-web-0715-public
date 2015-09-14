@@ -4,7 +4,7 @@
 
 Visit [this link](http://ironboard-curriculum-content.s3.amazonaws.com/web-development/js-ajax-youtube-todo/ajax-youtube-example.mp4) to watch a video of the functionality we're going for with this todo.
 
-The Ruby app has been built out for you, all you'll need to do is add JavaScript to the `ajaxCall` function in `public/fetch_video.js`. 
+The Ruby app has been built out for you, all you'll need to do is add JavaScript to the `ajaxCall` function in `public/fetch_video.js`.
 
 There are two routes for you to use, `/`, which renders `views/index.erb`, and `/widget`, which behaves as follows:
 
@@ -75,7 +75,7 @@ DEVELOPER_KEY=eXamPleAPiKeyStRiNG
 
 ### Get User Input
 
-* Open up the `fetch_video.js` file in the `public` folder. In the first line of the `ajaxCall` function, make a variable called `input` and set it equal to the text in the input box with the ID of `text-field`. 
+* Open up the `fetch_video.js` file in the `public` folder. In the first line of the `ajaxCall` function, make a variable called `input` and set it equal to the text in the input box with the ID of `text-field`.
 * If you need help, here's an example of making a variable called `nameOfUser` that is equal to the value of a text box with a class of "user-name":
 
 ```javascript
@@ -124,7 +124,6 @@ $.ajax({
 ```javascript
 $(".super-classy").html("<p>hello world</p>");
 ```
-
 ## Resources
 
 * Background Documentation

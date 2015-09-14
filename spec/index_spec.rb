@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Index" do
 
   let(:iframe) { '<iframe id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/' }
-  
+
   before(:each) do
     visit "/"
   end
@@ -20,7 +20,6 @@ describe "Index" do
     adorn_src = page.find("#ytplayer")['src']
     fill_in('text-field', with: 'jason derulo')
     find("#user-submit").click
-    sleep(2)
     expect(page.find("#ytplayer")['src']).to_not eq(adorn_src)
   end
 
@@ -29,7 +28,6 @@ describe "Index" do
     find("#user-submit").click
     fill_in('text-field', with: 'beyonce')
     find("#user-submit").click
-    sleep(2)
     expect(page).to match_exactly(1, "iframe")
   end
 
